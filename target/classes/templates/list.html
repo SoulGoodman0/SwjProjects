@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>所有用户</title>
+    <script type="text/javascript" th:inline="none"></script>
+</head>
+<body>
+
+    <center>
+        <form th:action="@{/findUserByName}" th:object="${queryname}" method="post">
+            用户名:<input type="text" name="queryname" th:value="${queryname}">
+            <input type="submit" value="提交">
+        </form>
+        <table border="1">
+            <tr>
+                <td>编号</td>
+                <td>用户名</td>
+                <td>密码</td>
+                <td>操作</td>
+            </tr>
+            <tr th:each="user:${list.lists}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.password}"></td>
+                <td>
+                    <a th:href="@{/delete(id=${user.id})}">Del</a>
+                    <a th:href="@{/toupdate(id=${user.id})}">Edit</a>
+                </td>
+            </tr>
+        </table>
+        <a th:href="@{/toAdd}">Add</a></center></br>
+        </br>
+        <ul>
+            <li><a th:href="@{findUserByName(currPageNo=${list.getCurrPageNo()-list.pageSize},queryname=${queryname})}">上一页</a></li>
+            <li><a th:href="@{findUserByName(currPageNo=${list.getCurrPageNo()+list.pageSize},queryname=${queryname})}">下一页</a></li>
+        </ul>
+    </center>
+
+</body>
+</html>

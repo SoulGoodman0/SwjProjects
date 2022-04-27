@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>所有用户</title>
+    <script type="text/javascript" th:inline="none"></script>
+</head>
+<body>
+
+    <center>
+        <form th:action="@{/add}" method="post">
+            用户名:<input name="username" type="text"></br>
+            密码:<input name="password" type="password"></br>
+            <input type="submit" value="提交">
+        </form>
+    </center>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>所有用户</title>
+    <script type="text/javascript" th:inline="none"></script>
+</head>
+<body>
+
+    <center>
+        <form th:action="@{/update}" th:object="${user}" method="post">
+            ID:<input type="text" name="id" th:value="*{id}" readonly="readonly">
+            用户名:<input type="text" name="username" th:value="*{username}">
+            密码:<input type="password" name="password" th:value="*{password}">
+            <input type="submit" value="提交">
+        </form>
+    </center>
+
+</body>
+</html>
